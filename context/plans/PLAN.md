@@ -40,3 +40,9 @@ A first-visit Edge client loads current source, while a returning Chrome client 
 ## Verified source delivery (2026-10-25 UTC)
 
 Application source commit 1b4255cf0ad503f895c4f713531d25dec92a91db is pushed and deployed READY as dpl_4Y7sgA5r8JM6XFBYigQcHZsw2WJU. The final public entry is https://sean-windows-11-web.vercel.app/. Direct desktop/Edge and cross-origin iframe Edge launch passed after current worker activation; source fallback links and Sean Widgets/profile were inspected. See the delivery log for precise tested coverage and limitations. The final documentation-only commit is confirmed against the same application asset content in the delivery handoff. No app feature work remains in this scope; third-party editor loading and upstream placeholders remain explicitly documented limitations.
+
+## Bounded window repair requested by independent QA (2026-10-25 UTC)
+
+Status: recorded before implementation. At 1180 x 757, Edge can initially open near x=568, placing its right edge and controls outside the viewport. Fix window initialization and viewport responsiveness while retaining upstream appearance, credits and functionality. Preserve the existing public alias and do not edit Boot Loader or main.
+
+Acceptance: reproduce at 1180 x 757; test initial open, close/reopen, drag/resize bounds, browser viewport shrink, maximize/restore and accessible close controls at 1180 x 757 and a narrower desktop. Inspect a mobile-size viewport where the existing desktop shell supports it; record remaining shell limitations. Run meaningful boundary checks and the production build, push only develop, and verify the exact new production deployment behind the same alias.
