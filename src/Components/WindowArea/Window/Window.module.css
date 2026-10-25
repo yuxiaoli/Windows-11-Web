@@ -107,3 +107,11 @@
 .content_image {
   width: clamp(40px, 40%, 200px);
 }
+
+/* Modified for Sean: keep titlebar controls reachable in narrow windows. */
+.title_stuff { min-width: 0; flex: 1; }
+.title_stuff p { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.title_icon { flex-shrink: 0; }
+.window_actions { flex-shrink: 0; }
+button.icon { border: 0; background: transparent; color: inherit; font: inherit; cursor: pointer; }
+button.icon:focus-visible { outline: 2px solid currentColor; outline-offset: -2px; }

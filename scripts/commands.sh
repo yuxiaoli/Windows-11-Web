@@ -45,3 +45,6 @@ git push origin develop
 
 # No separate test or lint script exists in the upstream package manifest.
 # Deployment commands are intentionally omitted until the actual authorized target is verified.
+
+# Verify window placement and viewport boundary regressions (Node.js 18+).
+pnpm test

@@ -28,7 +28,7 @@ pnpm run postbuild
 pnpm run serve --host 127.0.0.1
 ```
 
-`build` runs TypeScript and Vite; the explicit `postbuild` command generates the service worker with Workbox. The static output is `dist/`. This upstream project has no separate test or lint script. See [scripts/commands.sh](./scripts/commands.sh) for individual command examples.
+`build` runs TypeScript and Vite; the explicit `postbuild` command generates the service worker with Workbox. The static output is `dist/`. Run pnpm test for window geometry regressions; the project has no separate lint script. See [scripts/commands.sh](./scripts/commands.sh) for individual command examples.
 
 Live fork: [sean-windows-11-web.vercel.app](https://sean-windows-11-web.vercel.app/), deployed from develop on the existing Vercel Hobby account. The original upstream demo remains separately credited below.
 

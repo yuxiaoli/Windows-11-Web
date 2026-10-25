@@ -1,0 +1,5 @@
+.workspace {
+  position: absolute;
+  inset: 0 0 50px;
+  pointer-events: none;
+}
