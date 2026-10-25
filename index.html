@@ -1,75 +1,32 @@
 <!DOCTYPE html>
+<!-- Modified for Sean's fork: personal metadata, no inherited analytics (2026-10-25). -->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="/src/assets/icons/favicon.svg"
-    />
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
-    <!-- Primary Meta Tags -->
-
-    <title>Windows 11 in Preact</title>
-    <meta name="title" content="Windows 11 Web" />
-    <meta
-      name="description"
-      content="Awe-amazing Windows 11 clone. Oh wait, Not for your Computer, but for the web! ⚡"
-    />
-
-    <!-- To study traffic data -->
-    <meta name="google-site-verification" content="%VITE_VERIF_CODE%" />
-
-    <!-- Open Graph / Facebook -->
+    <link rel="icon" type="image/svg+xml" href="/src/assets/icons/favicon.svg" />
+    <title>Sean's Windows 11 Web</title>
+    <meta name="title" content="Sean's Windows 11 Web" />
+    <meta name="description" content="Sean's personal web desktop. Explore Vector Index and this Windows 11 Web fork, originally created by Piyush Suthar." />
+    <link rel="canonical" href="https://sean-windows-11-web.vercel.app/" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://win11.vercel.app/" />
-    <link rel="canonical" href="https://windows-11.vercel.app/" />
-    <meta property="og:title" content="Windows 11 in Preact" />
-    <meta
-      property="og:description"
-      content="Awe-amazing Windows 11 clone. Oh wait, Not for your Computer, but for the web! ⚡"
-    />
-    <meta
-      property="og:image"
-      content="https://win11.vercel.app/assets/windows_11_web.png"
-    />
-
-    <!-- Twitter -->
+    <meta property="og:url" content="https://sean-windows-11-web.vercel.app/" />
+    <meta property="og:title" content="Sean's Windows 11 Web" />
+    <meta property="og:description" content="A personal web desktop by Sean / Vector Index. Based on Windows 11 Web by Piyush Suthar." />
+    <meta property="og:image" content="https://sean-windows-11-web.vercel.app/assets/windows_11_web.png" />
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://win11.vercel.app/" />
-    <meta property="twitter:title" content="Windows 11 in Preact" />
-    <meta
-      property="twitter:description"
-      content="Awe-amazing Windows 11 clone. Oh wait, Not for your Computer, but for the web! ⚡"
-    />
-    <meta
-      property="twitter:image"
-      content="https://win11.vercel.app/assets/windows_11_web.png"
-    />
+    <meta property="twitter:url" content="https://sean-windows-11-web.vercel.app/" />
+    <meta property="twitter:title" content="Sean's Windows 11 Web" />
+    <meta property="twitter:description" content="A personal web desktop by Sean / Vector Index. Based on Windows 11 Web by Piyush Suthar." />
+    <meta property="twitter:image" content="https://sean-windows-11-web.vercel.app/assets/windows_11_web.png" />
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-4RJJLPN38T"
-    ></script>
     <script type="module">
-      if (import.meta.env.PROD) {
-        window.dataLayer = window.dataLayer || [];
-        function gtag() {
-          dataLayer.push(arguments);
-        }
-        gtag("js", new Date());
-
-        gtag("config", "G-4RJJLPN38T");
-
-        if ("serviceWorker" in navigator) {
-          window.addEventListener("load", function () {
-            navigator.serviceWorker.register("/sw.js");
-          });
-        }
+      if (import.meta.env.PROD && "serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker.register("/sw.js");
+        });
       }
     </script>
   </body>

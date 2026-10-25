@@ -1,4 +1,4 @@
-// import { ShutDownIcon } from "../../../assets/icons/startmenu";
+// Modified for Sean's fork: personalize the desktop profile (2026-10-25).
 import styles from "./UserProfile.module.css";
 
 export const UserProfile = () => {
@@ -6,10 +6,10 @@ export const UserProfile = () => {
     <div class={styles.container}>
       <div class={styles.user}>
         <img
-          src="https://avatars.githubusercontent.com/u/32237558?v=4&s=50"
-          alt="Piyush Suthar"
+          src="https://github.com/yuxiaoli.png?size=100"
+          alt="Sean"
         />
-        <p>Piyush Suthar</p>
+        <p>Sean</p>
       </div>
       <ShutDownIcon />
     </div>

@@ -1,3 +1,4 @@
+// Modified for Sean's fork: personalize the widgets avatar (2026-10-25).
 import { useStore } from "nanostores/preact";
 import { useRef } from "preact/hooks";
 import useClickOutside from "../../hooks/useClickOutside";
@@ -25,7 +26,7 @@ export const Widgets = () => {
 
   const UserImage = () => (
     <div className={styles.userImage}>
-      <img src="https://avatars.githubusercontent.com/u/32237558?v=4&s=50" />
+      <img src="https://github.com/yuxiaoli.png?size=100" alt="Sean" />
     </div>
   );
   return showWidgets ? (

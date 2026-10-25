@@ -1,3 +1,4 @@
+// Modified for Sean's fork: link to Sean's source and public homepage (2026-10-25).
 import {
     ChromeIcon,
     GitHubIcon,
@@ -8,7 +9,6 @@ import {
     MSWordIcon,
     PhotoShopIcon,
     PhotosIcon,
-    TwitterIcon,
     MSExcelIcon,
     MSGrooveIcon,
     MSStoreIcon,
@@ -32,12 +32,12 @@ export const PinnedApps: PinnedApp[] = [{
     title: "GitHub",
     icon: GitHubIcon,
     isLink: true,
-    url: "https://github.com/piyushsuthar/windows-11-web"
+    url: "https://github.com/yuxiaoli/Windows-11-Web/tree/develop"
 }, {
-    title: "Twitter",
-    icon: TwitterIcon,
+    title: "Vector Index",
+    icon: WhiteBoardIcon,
     isLink: true,
-    url: "https://twitter.com/piyushsthr"
+    url: "https://vectorindex.cloud"
 }, {
     title: "Edge",
     icon: MSEdgeIcon

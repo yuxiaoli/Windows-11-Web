@@ -1,10 +1,11 @@
+// Modified by Sean: add Edge home and preserve implemented app launch components.
 import edge from '../assets/icons/taskbar/edge.ico'
 import ms_store from '../assets/icons/taskbar/ms_store.png'
 import file_explorer from '../assets/icons/taskbar/file_explorer.webp'
 import { MSEdgeIcon, MSStoreIcon, SettingsIcon, VSCodeIcon } from '../assets/icons/startmenu'
 import { ControlPanel, RecycleBin, ThisPC } from '../assets/icons/Desktop'
 import { Apps } from './startMenu.config'
-import { VsCodeApp } from '../Apps'
+import { EdgeApp, VsCodeApp } from '../Apps'
 
 export type App = {
     [key: string]: {
@@ -19,11 +20,16 @@ export type App = {
 }
 
 export const AppsConfig: App = {
+    // Set menu defaults first so they cannot erase implemented app components.
+    ...Apps(),
     edge: {
         title: "Edge",
         isActive: false,
         icon: MSEdgeIcon,
-        pinned: true
+        pinned: true,
+        Component: EdgeApp,
+        height: 530,
+        width: 740
     },
     "file-explorer": {
         title: "File Explorer",
@@ -65,5 +71,13 @@ export const AppsConfig: App = {
         height: 500,
         width: 800
     },
-    ...Apps(),
+    // The start menu uses a title-derived ID; keep both launch paths consistent.
+    Edge: {
+        title: "Edge",
+        isActive: false,
+        icon: MSEdgeIcon,
+        Component: EdgeApp,
+        height: 530,
+        width: 740
+    },
 } as const
