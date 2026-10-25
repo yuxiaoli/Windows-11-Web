@@ -1,3 +1,4 @@
+// Modified by Sean: label bundled weather as sample data, not a personal location.
 import { useState } from "preact/hooks";
 import { WeatherIcon } from "../../../../assets/icons/startmenu";
 import { WidgetWrapper } from "../WidgetWrapper";
@@ -16,7 +17,7 @@ export const WeatherWidget = () => {
       <div className={styles.container}>
         <div className={styles.location}>
           <HomeIcon />
-          <span>Margao, Goa, India</span>
+          <span>Sample weather · not live</span>
         </div>
         <div class={styles.weather_info}>
           <div className={styles.weather_data}>

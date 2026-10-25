@@ -1,5 +1,5 @@
 {
-  "name": "my-vue-app",
+  "name": "sean-windows-11-web",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
@@ -20,5 +20,7 @@
     "vite": "^4.4.9",
     "vite-plugin-compression": "^0.3.0",
     "workbox-cli": "^6.1.5"
-  }
+  },
+  "packageManager": "pnpm@8.15.9",
+  "description": "Windows 11 Web by Piyush Suthar, modified by Sean / yuxiaoli."
 }
