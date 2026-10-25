@@ -32,3 +32,7 @@ Fork URL; remote default branch; unchanged `main` baseline; final pushed `develo
 - Initial deployment f7d2fbbd8dd920c654d4564bc4efc5f9fe8a1c2f is READY on Vercel; public origin is https://sean-windows-11-web.vercel.app. Anonymous HTTP and static assets passed. Cross-origin iframe rendered the desktop.
 - Remaining: complete actual public Edge/widgets/link flow; address github1s blank iframe with visible fallback links; rebuild and push the final source commit; verify its exact production deployment and save evidence. External editor content depends on github1s.
 - Latest acceptance protocol requires real verbose progress for applicable long-running CLI changes; this frontend has no such CLI feature, so do not invent unrelated CLI work.
+
+## Deployment refresh repair (2026-10-25 UTC)
+
+A first-visit Edge client loads current source, while a returning Chrome client retained the inherited cached HTML and briefly became blank after deployment. Before further changes, record the repair scope: preserve offline caching and localStorage, activate current service workers promptly, bypass worker script HTTP caching, and reload once on controller replacement. Verify both a returning client and the final public launch. Do not change platform security or saved documents.
