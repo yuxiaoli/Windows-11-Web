@@ -25,7 +25,17 @@
     <script type="module">
       if (import.meta.env.PROD && "serviceWorker" in navigator) {
         window.addEventListener("load", function () {
-          navigator.serviceWorker.register("/sw.js");
+          const wasControlled = Boolean(navigator.serviceWorker.controller);
+          let refreshed = false;
+          navigator.serviceWorker.addEventListener("controllerchange", function () {
+            if (wasControlled && !refreshed) {
+              refreshed = true;
+              window.location.reload();
+            }
+          });
+          navigator.serviceWorker.register("/sw.js", { updateViaCache: "none" })
+            .then(function (registration) { return registration.update(); })
+            .catch(function (error) { console.warn("Offline cache unavailable", error); });
         });
       }
     </script>
