@@ -22,3 +22,13 @@ Keep `main` as an unmodified upstream cache synchronized manually by the user on
 ## Delivery evidence required
 
 Fork URL; remote default branch; unchanged `main` baseline; final pushed `develop` SHA; build and deployment results; actual public app URL; key UI flow and iframe verification; remaining limitations. A successful HTTP response or build alone does not establish usability.
+
+## User steering recorded before further work (2026-10-25 UTC)
+
+- Record requested tasks and constraints here before continuing complex implementation; retain this single canonical AI plan and preserve human-maintained files.
+- Inspect every included app for tasteful personal touches. Use meaningful short starter copy where the actual app supports it; preserve edited/saved notes and localStorage. Do not claim a Notepad exists.
+- Public identity: Sean / yuxiaoli / Vector Index; exact homepage https://vectorindex.cloud. User confirmed yuxiaoli/cv as an optional professional-information source and delegated copy choices; do not publish private CV contents wholesale. Current copy needs no private facts.
+- No macOS-specific URL configuration work is in Win11 scope. Do not edit Boot Loader. Return the verified app URL and iframe findings to the parent for the later destination update.
+- Initial deployment f7d2fbbd8dd920c654d4564bc4efc5f9fe8a1c2f is READY on Vercel; public origin is https://sean-windows-11-web.vercel.app. Anonymous HTTP and static assets passed. Cross-origin iframe rendered the desktop.
+- Remaining: complete actual public Edge/widgets/link flow; address github1s blank iframe with visible fallback links; rebuild and push the final source commit; verify its exact production deployment and save evidence. External editor content depends on github1s.
+- Latest acceptance protocol requires real verbose progress for applicable long-running CLI changes; this frontend has no such CLI feature, so do not invent unrelated CLI work.
