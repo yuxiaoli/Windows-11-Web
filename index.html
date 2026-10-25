@@ -25,10 +25,12 @@
     <script type="module">
       if (import.meta.env.PROD && "serviceWorker" in navigator) {
         window.addEventListener("load", function () {
-          const wasControlled = Boolean(navigator.serviceWorker.controller);
+          let wasControlled = Boolean(navigator.serviceWorker.controller);
           let refreshed = false;
           navigator.serviceWorker.addEventListener("controllerchange", function () {
-            if (wasControlled && !refreshed) {
+            const replacingController = wasControlled;
+            wasControlled = Boolean(navigator.serviceWorker.controller);
+            if (replacingController && !refreshed) {
               refreshed = true;
               window.location.reload();
             }
