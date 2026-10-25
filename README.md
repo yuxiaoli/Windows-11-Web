@@ -28,9 +28,25 @@ pnpm run postbuild
 pnpm run serve --host 127.0.0.1
 ```
 
-`build` runs TypeScript and Vite; the explicit `postbuild` command generates the service worker with Workbox. The static output is `dist/`. Run pnpm test for window geometry regressions; the project has no separate lint script. See [scripts/commands.sh](./scripts/commands.sh) for individual command examples.
+`build` runs TypeScript and Vite; the explicit `postbuild` command generates the service worker with Workbox. The static output is `dist/`. Run pnpm test for window geometry and shared-origin theme storage regressions; the project has no separate lint script. See [scripts/commands.sh](./scripts/commands.sh) for individual command examples.
 
-Live fork: [sean-windows-11-web.vercel.app](https://sean-windows-11-web.vercel.app/), deployed from develop on the existing Vercel Hobby account. The original upstream demo remains separately credited below.
+Primary Pages target: [yuxiaoli.github.io/Windows-11-Web](https://yuxiaoli.github.io/Windows-11-Web/) (publication verification in progress). The existing [Vercel compatibility address](https://sean-windows-11-web.vercel.app/) remains active. Both deployments use develop; the original upstream demo remains separately credited below.
+
+### Hosting targets
+
+The default build keeps Vercel's root base. The Pages build uses /Windows-11-Web/ and scopes its service worker to that project path:
+
+~~~sh
+pnpm run build
+pnpm run postbuild
+node scripts/verify-build.cjs / https://sean-windows-11-web.vercel.app/
+pnpm run build:pages
+pnpm run postbuild
+node scripts/verify-build.cjs /Windows-11-Web/ https://yuxiaoli.github.io/Windows-11-Web/
+pnpm run serve --mode github-pages --host 127.0.0.1
+~~~
+
+The Pages workflow tests and builds both targets, then uploads the Pages dist and deploys only from develop. It uses pinned actions, a read-only build token and Pages/OIDC permissions only in the deployment job. Each Pages artifact contains commit-<full-sha>.txt for anonymous exact-version verification. Theme preferences use windows-11-web:theme; valid legacy theme preferences are copied without changing the shared legacy key.
 
 ### Personalization and app coverage
 

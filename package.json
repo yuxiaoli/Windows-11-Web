@@ -6,7 +6,9 @@
     "build": "tsc && vite build",
     "serve": "vite preview",
     "postbuild": "workbox generateSW workbox-config.js",
-    "test": "node --test tests/*.test.cjs"
+    "test": "node --test tests/*.test.cjs",
+    "build:pages": "tsc && vite build --mode github-pages",
+    "verify:build": "node scripts/verify-build.cjs"
   },
   "dependencies": {
     "million": "^2.5.13",

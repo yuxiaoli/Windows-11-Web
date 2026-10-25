@@ -43,8 +43,27 @@ git ls-remote --symref origin HEAD refs/heads/develop refs/heads/main
 # Push reviewed and committed custom work only to develop; this changes the remote branch.
 git push origin develop
 
-# No separate test or lint script exists in the upstream package manifest.
-# Deployment commands are intentionally omitted until the actual authorized target is verified.
+# The upstream had no tests; this fork adds geometry and theme storage regression tests.
+# No separate lint script exists.
 
 # Verify window placement and viewport boundary regressions (Node.js 18+).
 pnpm test
+
+# Build the Pages project path and generate its scoped service worker.
+pnpm run build:pages
+pnpm run postbuild
+
+# Verify emitted root-path assets and worker after the default build.
+node scripts/verify-build.cjs / https://sean-windows-11-web.vercel.app/
+
+# Verify emitted Pages assets and worker after the Pages build.
+node scripts/verify-build.cjs /Windows-11-Web/ https://yuxiaoli.github.io/Windows-11-Web/
+
+# Preview Pages under its actual project path on localhost.
+pnpm run serve --mode github-pages --host 127.0.0.1
+
+# Inspect Pages deployment workflow runs (requires existing GitHub CLI authentication).
+gh run list --repo yuxiaoli/Windows-11-Web --workflow pages.yml --branch develop
+
+# Inspect the configured Pages source without changing it.
+gh api repos/yuxiaoli/Windows-11-Web/pages
