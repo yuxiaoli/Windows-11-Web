@@ -30,7 +30,7 @@ pnpm run serve --host 127.0.0.1
 
 `build` runs TypeScript and Vite; the explicit `postbuild` command generates the service worker with Workbox. The static output is `dist/`. Run pnpm test for window geometry and shared-origin theme storage regressions; the project has no separate lint script. See [scripts/commands.sh](./scripts/commands.sh) for individual command examples.
 
-Primary Pages target: [yuxiaoli.github.io/Windows-11-Web](https://yuxiaoli.github.io/Windows-11-Web/) (publication verification in progress). The existing [Vercel compatibility address](https://sean-windows-11-web.vercel.app/) remains active. Both deployments use develop; the original upstream demo remains separately credited below.
+Primary live site: [yuxiaoli.github.io/Windows-11-Web](https://yuxiaoli.github.io/Windows-11-Web/). The existing [Vercel compatibility address](https://sean-windows-11-web.vercel.app/) remains active. Both deployments use develop; the original upstream demo remains separately credited below.
 
 ### Hosting targets
 
@@ -52,11 +52,11 @@ The Pages workflow tests and builds both targets, then uploads the Pages dist an
 
 - Start menu and Widgets show Sean's avatar; Start menu links lead to this fork and Vector Index.
 - Edge has a personal start page with a short welcome, homepage, public GitHub profile and source shortcuts, plus upstream credit.
-- VSCode browses this fork's develop source. Always-visible GitHub/editor links remain usable when the external github1s iframe is unavailable; that iframe remained blank in the delivery browser.
+- VSCode browses this fork's develop source. Always-visible GitHub/editor links remain usable when the external github1s iframe is unavailable; the GitHub1s interface loaded during Pages verification, while external availability remains dependent on that service.
 - Bundled weather is labelled sample data. Other included app icons remain upstream Coming Soon placeholders. This upstream has no Notepad or saved-document model, so no saved notes were changed.
 - Inherited original-owner analytics were removed; original license, attribution and third-party credits are preserved.
 
-The desktop and Edge home were verified both directly and inside a cross-origin iframe. No frame-blocking CSP or X-Frame-Options was returned on the public origin. Boot Loader is maintained separately and was not edited here. Early cached clients may need one full refresh (Ctrl+Shift+R) after migration from the inherited worker. Worker replacement now activates promptly and refreshes controlled pages; saved localStorage is preserved. Detailed source/deployment evidence is in [the delivery log](./context/logs/LOG_20261025_141042.md).
+The desktop and Edge home were verified both directly and inside a cross-origin iframe. No frame-blocking CSP or X-Frame-Options was returned on the public origin. Boot Loader is maintained separately and was not edited here. Early cached clients may need one full refresh (Ctrl+Shift+R) after migration from the inherited worker. Worker replacement now activates promptly and refreshes controlled pages; saved localStorage is preserved. Original delivery evidence is in [the preparation log](./context/logs/LOG_20261025_141042.md), and Pages migration evidence is in [the migration log](./context/logs/LOG_20261025_164453.md).
 
 ## Original upstream README
 
