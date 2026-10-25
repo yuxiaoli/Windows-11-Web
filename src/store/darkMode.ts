@@ -1,28 +1,24 @@
+// Modified for Sean: isolate theme writes on the shared Pages origin and tolerate restricted storage (2026-10-25).
 import { createStore, getValue } from 'nanostores'
+import { readStoredTheme, writeStoredTheme, Theme, ThemeStorage } from './themeStorage'
 
-type themeType = "light" | "dark"
+const getStorage = (): ThemeStorage | undefined => {
+  try { return window.localStorage; } catch { return undefined; }
+};
 
-let LOCAL_KEY = "theme"
-
-export const ThemeStore = createStore<themeType>(() => {
+export const ThemeStore = createStore<Theme>(() => {
   if (typeof window !== "undefined") {
-    if (localStorage.getItem(LOCAL_KEY)) {
-      let localTheme = localStorage.getItem(LOCAL_KEY)! as themeType
-      ThemeStore.set(localTheme)
-      document.documentElement.setAttribute("data-theme", localTheme)
-    } else {
-      localStorage.setItem(LOCAL_KEY, "light")
-      document.documentElement.setAttribute("data-theme", "light")
-      ThemeStore.set("light")
-    }
+    const theme = readStoredTheme(getStorage());
+    ThemeStore.set(theme);
+    document.documentElement.setAttribute("data-theme", theme);
   }
-})
+});
 
 export const toggleTheme = () => {
   if (typeof window !== "undefined") {
-    let newTheme: themeType = getValue(ThemeStore) === "light" ? "dark" : "light"
-    ThemeStore.set(newTheme)
-    localStorage.setItem(LOCAL_KEY, newTheme)
-    document.documentElement.setAttribute("data-theme", newTheme)
+    const theme: Theme = getValue(ThemeStore) === "light" ? "dark" : "light";
+    ThemeStore.set(theme);
+    writeStoredTheme(getStorage(), theme);
+    document.documentElement.setAttribute("data-theme", theme);
   }
-}
+};

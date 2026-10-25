@@ -7,17 +7,17 @@
     <title>Sean's Windows 11 Web</title>
     <meta name="title" content="Sean's Windows 11 Web" />
     <meta name="description" content="Sean's personal web desktop. Explore Vector Index and this Windows 11 Web fork, originally created by Piyush Suthar." />
-    <link rel="canonical" href="https://sean-windows-11-web.vercel.app/" />
+    <link rel="canonical" href="__SITE_URL__" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://sean-windows-11-web.vercel.app/" />
+    <meta property="og:url" content="__SITE_URL__" />
     <meta property="og:title" content="Sean's Windows 11 Web" />
     <meta property="og:description" content="A personal web desktop by Sean / Vector Index. Based on Windows 11 Web by Piyush Suthar." />
-    <meta property="og:image" content="https://sean-windows-11-web.vercel.app/assets/windows_11_web.png" />
+    <meta property="og:image" content="__SITE_URL__assets/windows_11_web.png" />
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://sean-windows-11-web.vercel.app/" />
+    <meta property="twitter:url" content="__SITE_URL__" />
     <meta property="twitter:title" content="Sean's Windows 11 Web" />
     <meta property="twitter:description" content="A personal web desktop by Sean / Vector Index. Based on Windows 11 Web by Piyush Suthar." />
-    <meta property="twitter:image" content="https://sean-windows-11-web.vercel.app/assets/windows_11_web.png" />
+    <meta property="twitter:image" content="__SITE_URL__assets/windows_11_web.png" />
   </head>
   <body>
     <div id="root"></div>
@@ -35,7 +35,7 @@
               window.location.reload();
             }
           });
-          navigator.serviceWorker.register("/sw.js", { updateViaCache: "none" })
+          navigator.serviceWorker.register(import.meta.env.BASE_URL + "sw.js", { scope: import.meta.env.BASE_URL, updateViaCache: "none" })
             .then(function (registration) { return registration.update(); })
             .catch(function (error) { console.warn("Offline cache unavailable", error); });
         });
