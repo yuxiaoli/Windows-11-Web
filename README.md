@@ -30,7 +30,17 @@ pnpm run serve --host 127.0.0.1
 
 `build` runs TypeScript and Vite; the explicit `postbuild` command generates the service worker with Workbox. The static output is `dist/`. This upstream project has no separate test or lint script. See [scripts/commands.sh](./scripts/commands.sh) for individual command examples.
 
-Fork deployment and public UI verification are pending. The link below is the original upstream demo, not a claimed deployment of this fork.
+Live fork: [sean-windows-11-web.vercel.app](https://sean-windows-11-web.vercel.app/), deployed from develop on the existing Vercel Hobby account. The original upstream demo remains separately credited below.
+
+### Personalization and app coverage
+
+- Start menu and Widgets show Sean's avatar; Start menu links lead to this fork and Vector Index.
+- Edge has a personal start page with a short welcome, homepage, public GitHub profile and source shortcuts, plus upstream credit.
+- VSCode browses this fork's develop source. Always-visible GitHub/editor links remain usable when the external github1s iframe is unavailable; that iframe remained blank in the delivery browser.
+- Bundled weather is labelled sample data. Other included app icons remain upstream Coming Soon placeholders. This upstream has no Notepad or saved-document model, so no saved notes were changed.
+- Inherited original-owner analytics were removed; original license, attribution and third-party credits are preserved.
+
+The desktop and Edge home were verified both directly and inside a cross-origin iframe. No frame-blocking CSP or X-Frame-Options was returned on the public origin. Boot Loader is maintained separately and was not edited here. Early cached clients may need one full refresh (Ctrl+Shift+R) after migration from the inherited worker. Worker replacement now activates promptly and refreshes controlled pages; saved localStorage is preserved. Detailed source/deployment evidence is in [the delivery log](./context/logs/LOG_20261025_141042.md).
 
 ## Original upstream README
 
