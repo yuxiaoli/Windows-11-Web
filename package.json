@@ -5,7 +5,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "serve": "vite preview",
-    "postbuild": "workbox generateSW workbox-config.js"
+    "postbuild": "workbox generateSW workbox-config.js",
+    "test": "node --test tests/*.test.cjs"
   },
   "dependencies": {
     "million": "^2.5.13",
