@@ -16,13 +16,7 @@
 
 .intro {
   margin: 34px 0 28px;
-}
-
-.eyebrow {
-  font-size: 11px;
-  letter-spacing: 2px;
-  margin-bottom: 10px;
-  opacity: 0.65;
+  overflow-wrap: anywhere;
 }
 
 .intro h1 {
@@ -31,9 +25,15 @@
   margin-bottom: 10px;
 }
 
-.intro > p:last-child {
+.intro p {
+  margin-top: 14px;
   font-size: 14px;
-  opacity: 0.75;
+  line-height: 1.65;
+  opacity: 0.8;
+}
+
+.intro a {
+  color: inherit;
 }
 
 .shortcuts {

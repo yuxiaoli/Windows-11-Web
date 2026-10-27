@@ -1,4 +1,9 @@
 import styles from "./Edge.module.css";
+import welcomeText from "./welcome.txt?raw";
+
+// Modified by Sean / yuxiaoli on 2026-10-27: exact approved welcome copy.
+const welcomeParagraphs = welcomeText.split("\n\n");
+const homepage = "https://vectorindex.cloud";
 
 const shortcuts = [
   {
@@ -25,7 +30,16 @@ export const EdgeApp = () => (
   <section class={styles.page} aria-label="Edge home">
     <div class={styles.address}>vectorindex.cloud</div>
     <div class={styles.intro}>
-      <p style={{ whiteSpace: "pre-wrap" }}>{"Welcome. Curiosity has a desktop now.\n\nI’m Sean. This is a browser pretending to be somewhere else, built on the work of open-source communities.\n\nOpen a window. Follow a hunch. Try the command you think should work. Some things will feel familiar; others are still being figured out.\n\nThe interesting part isn’t making pixels look like an operating system. It’s seeing how much of the experience lives in the details.\n\nFound a rough edge? That’s a good place to contribute.\n\nKeep exploring: https://vectorindex.cloud"}</p>
+      {welcomeParagraphs.map((paragraph, index) =>
+        index === 0 ? <h1 key={index}>{paragraph}</h1> : (
+          <p key={index}>
+            {index === welcomeParagraphs.length - 1 ? <>
+              {paragraph.slice(0, -homepage.length)}
+              <a href={homepage} target="_blank" rel="noopener noreferrer">{homepage}</a>
+            </> : paragraph}
+          </p>
+        )
+      )}
     </div>
     <nav class={styles.shortcuts} aria-label="Personal shortcuts">
       {shortcuts.map(({ title, description, url, label }) => (

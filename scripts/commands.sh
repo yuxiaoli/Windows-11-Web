@@ -13,8 +13,9 @@ git status --short --branch
 # Fetch the user's fork refs without modifying local branches or the upstream cache.
 git fetch origin
 
-# Switch to the custom development branch.
-git switch develop
+# Start an isolated feature from the current remote development branch.
+# Replace feature/your-change with a meaningful unused branch name.
+git switch -c feature/your-change origin/develop
 
 # Install the exact versions resolved by the existing lockfile.
 pnpm install --frozen-lockfile
@@ -40,10 +41,11 @@ git diff main...develop
 # Check the exact remote default branch and custom branch commit without changing them.
 git ls-remote --symref origin HEAD refs/heads/develop refs/heads/main
 
-# Push reviewed and committed custom work only to develop; this changes the remote branch.
-git push origin develop
+# Push committed feature work and open a draft PR targeting develop.
+git push -u origin HEAD
+gh pr create --base develop --draft
 
-# The upstream had no tests; this fork adds geometry and theme storage regression tests.
+# The upstream had no tests; this fork adds welcome, geometry and theme storage regressions.
 # No separate lint script exists.
 
 # Verify window placement and viewport boundary regressions (Node.js 18+).
