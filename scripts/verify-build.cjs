@@ -19,4 +19,11 @@ const entry = assets.find(value => value.endsWith('.js'));
 const script = fs.readFileSync(path.join(output, entry.slice(base.length)), 'utf8');
 assert.ok(script.includes(base + 'sw.js'), 'service worker must use the target base');
 assert.ok(script.includes('updateViaCache'), 'worker update must bypass stale script cache');
+const welcome = fs.readFileSync(path.resolve(__dirname, '../src/Apps/Edge/welcome.txt'), 'utf8');
+const chunks = fs.readdirSync(path.join(output, 'assets')).filter(name => name.endsWith('.js'));
+const welcomeLiterals = [JSON.stringify(welcome), '`' + welcome + '`'];
+assert.ok(chunks.some(name => {
+  const content = fs.readFileSync(path.join(output, 'assets', name), 'utf8');
+  return welcomeLiterals.some(literal => content.includes(literal));
+}), 'emitted app must include the exact approved welcome');
 console.log(`Verified ${assets.length} HTML assets, canonical and scoped service worker for ${base}`);

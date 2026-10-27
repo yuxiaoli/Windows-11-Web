@@ -1,0 +1,2 @@
+# Keep the approved welcome's UTF-8 bytes and LF paragraphs identical on every OS.
+src/Apps/Edge/welcome.txt -text

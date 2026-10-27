@@ -3,3 +3,8 @@ node_modules
 dist
 dist-ssr
 *.local
+
+# Modified by Sean / yuxiaoli on 2026-10-27: track the reference registry only.
+!refs/
+refs/*
+!refs/.repos.json

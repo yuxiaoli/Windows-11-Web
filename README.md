@@ -10,7 +10,7 @@ The original project, Apache 2.0 [LICENSE](./LICENSE), attribution, and third-pa
 
 ### Development and delivery
 
-- `develop` is the remote default and the branch for all custom changes and production source.
+- `develop` is the remote default and production source. Normal changes use a feature branch from current `develop`, then a reviewed PR back to `develop`.
 - `main` is an unmodified upstream cache. Only the user manually synchronizes it; agents must not push, synchronize, reset, merge into, or delete it.
 - Keep the existing pnpm lockfile. Use pnpm 8 with a compatible Node.js runtime. From the repository root:
 
@@ -28,7 +28,7 @@ pnpm run postbuild
 pnpm run serve --host 127.0.0.1
 ```
 
-`build` runs TypeScript and Vite; the explicit `postbuild` command generates the service worker with Workbox. The static output is `dist/`. Run pnpm test for window geometry and shared-origin theme storage regressions; the project has no separate lint script. See [scripts/commands.sh](./scripts/commands.sh) for individual command examples.
+`build` runs TypeScript and Vite; the explicit `postbuild` command generates the service worker with Workbox. The static output is `dist/`. Run pnpm test for exact welcome rendering, window geometry and shared-origin theme storage regressions; the project has no separate lint script. See [scripts/commands.sh](./scripts/commands.sh) for individual command examples.
 
 Primary live site: [yuxiaoli.github.io/Windows-11-Web](https://yuxiaoli.github.io/Windows-11-Web/). The existing [Vercel compatibility address](https://sean-windows-11-web.vercel.app/) remains active. Both deployments use develop; the original upstream demo remains separately credited below.
 
@@ -51,7 +51,7 @@ The Pages workflow tests and builds both targets, then uploads the Pages dist an
 ### Personalization and app coverage
 
 - Start menu and Widgets show Sean's avatar; Start menu links lead to this fork and Vector Index.
-- Edge has a personal start page with a short welcome, homepage, public GitHub profile and source shortcuts, plus upstream credit.
+- Edge has a personal start page with Sean's [exact approved welcome](./src/Apps/Edge/welcome.txt), homepage, public GitHub profile and source shortcuts, plus separate upstream credit. The welcome matches [DOT_NOTES at bb681b8](https://github.com/yuxiaoli/DOT_NOTES/blob/bb681b8fd0085af3cc15ef02e6da1b955404e5ce/projects/repos/boot-loader/welcome.md), blob `fe7e9edba1d4cbbe07d44e43dea42bd5e3f234b7`. It is bundled static content and does not access or migrate saved browser data.
 - VSCode browses this fork's develop source. Always-visible GitHub/editor links remain usable when the external github1s iframe is unavailable; the GitHub1s interface loaded during Pages verification, while external availability remains dependent on that service.
 - Bundled weather is labelled sample data. Other included app icons remain upstream Coming Soon placeholders. This upstream has no Notepad or saved-document model, so no saved notes were changed.
 - Inherited original-owner analytics were removed; original license, attribution and third-party credits are preserved.
