@@ -1,4 +1,9 @@
 import styles from "./Edge.module.css";
+import welcomeText from "./welcome.txt?raw";
+
+// Modified by Sean / yuxiaoli on 2026-10-27: exact approved welcome copy.
+const welcomeParagraphs = welcomeText.split("\n\n");
+const homepage = "https://vectorindex.cloud";
 
 const shortcuts = [
   {
@@ -25,9 +30,16 @@ export const EdgeApp = () => (
   <section class={styles.page} aria-label="Edge home">
     <div class={styles.address}>vectorindex.cloud</div>
     <div class={styles.intro}>
-      <p class={styles.eyebrow}>SEAN'S DESKTOP</p>
-      <h1>A little space to explore.</h1>
-      <p>Follow an idea, open the source, build something useful.</p>
+      {welcomeParagraphs.map((paragraph, index) =>
+        index === 0 ? <h1 key={index}>{paragraph}</h1> : (
+          <p key={index}>
+            {index === welcomeParagraphs.length - 1 ? <>
+              {paragraph.slice(0, -homepage.length)}
+              <a href={homepage} target="_blank" rel="noopener noreferrer">{homepage}</a>
+            </> : paragraph}
+          </p>
+        )
+      )}
     </div>
     <nav class={styles.shortcuts} aria-label="Personal shortcuts">
       {shortcuts.map(({ title, description, url, label }) => (
